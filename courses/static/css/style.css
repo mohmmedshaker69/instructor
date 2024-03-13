@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Course list styles */
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.course-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.course-card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.course-card p {
+    margin-bottom: 0;
+    color: #666;
+}
+
+/* Course detail styles */
+.course-detail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.course-detail h2 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.course-detail p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+/* Add more styles as needed */

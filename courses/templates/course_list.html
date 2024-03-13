@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Course List - Your Website{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-8 py-16">
+        <h1 class="text-5xl font-bold mb-8">Course List</h1>
+        <div class="overflow-x-auto">
+            <table id="course-table" class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="px-8 py-4 bg-gray-100 border border-gray-300 text-left">Name</th>
+                        <th class="px-8 py-4 bg-gray-100 border border-gray-300 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for course in courses %}
+                        <tr>
+                            <td class="px-8 py-4 border border-gray-300">{{ course.name }}</td>
+                            <td class="px-8 py-4 border border-gray-300">
+                                <a href="{% url 'course_detail' course.id %}" class="btn btn-blue mr-2">View</a>
+                                <a href="{% url 'delete_course' course.id %}" class="btn btn-red mr-2">Delete</a>
+                                <a href="{% url 'edit_course' course.id %}" class="btn btn-green">Edit</a>
+                                <a href="{% url 'add_chapters' course.id %}" class="btn btn-green">add chapter</a>
+
+                                
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#course-table').DataTable();
+        });
+    </script>
+{% endblock %}

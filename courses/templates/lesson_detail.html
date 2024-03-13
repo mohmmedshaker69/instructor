@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lesson Detail - Your Website{% endblock %}
+
+{% block content %}
+    <h1>Lesson Detail</h1>
+    <h2>{{ lesson.name }}</h2>
+    <video src="">{{ lesson.video }}</video>
+    <h2>{{ lesson.pdf }}</h2>
+    <h2>{{ lesson.updated_at }}</h2>
+    <h1>{{ lesson.name }}</h1>
+    <video controls width="640" height="360">
+        <source src="{{ lesson.video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+{% endblock %}

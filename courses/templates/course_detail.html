@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Course Detail - Your Website{% endblock %}
+
+{% block content %}
+    <h1>{{ course.name }}</h1>
+    <p>{{ course.description }}</p>
+    
+    <h2>Chapters:</h2>
+    <ul>
+        {% for chapter in chapters %}
+            <li>
+                <a href="{% url 'chapter_detail' chapter_id=chapter.id %}">Chapter {{ chapter.id }}</a>
+                <ul>
+                    {% for lesson in chapter.lesson_set.all %}
+                        <li><a href="{% url 'lesson_detail' course.id chapter.chapter_id lesson.id %}">{{ lesson.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

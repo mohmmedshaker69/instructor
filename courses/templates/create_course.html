@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Create Course - Your Website{% endblock %}
+
+{% block content %}
+    <h1>Create New Course</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    {% if course.id %}
+        <li><a href="{% url 'create_chapter' course.id %}">Create Chapter</a></li>
+    {% endif %}
+{% endblock %}

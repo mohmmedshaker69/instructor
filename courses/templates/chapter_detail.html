@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chapter Detail - Your Website{% endblock %}
+
+{% block content %}
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">Chapter Detail</h1>
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-4 mb-8">
+            <h2 class="text-xl font-semibold mb-2">{{ chapter.name }}</h2>
+            <p class="text-gray-600 mb-2">Created at: {{ chapter.created_at }}</p>
+            <p class="text-gray-600 mb-2">Last Updated: {{ chapter.updated_at }}</p>
+        </div>
+        
+        <h1 class="text-3xl font-bold mb-6">Lesson Detail</h1>
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-4 mb-8">
+            <h2 class="text-xl font-semibold mb-2">{{ lesson.name }}</h2>
+            <div class="flex items-center mb-4">
+                <video controls class="mr-4" width="320" height="180">
+                    <source src="{{ lesson.video.url }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div>
+                    <a href="{{ lesson.pdf.url }}" class="btn btn-blue mr-2">Download PDF</a>
+                    <p class="text-gray-600">Last Updated: {{ lesson.updated_at }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
