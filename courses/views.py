@@ -157,13 +157,36 @@ def add_chapters(request,  course_id):
     return render(request, 'create_chapter.html', {'form': form})
     
 
+def add_lessons(request,  chapter_id):
+    chapter = get_object_or_404(Chapter, pk=chapter_id)
+    if request.method == 'POST':
+        form = NewLessonForm(request.POST)
+        if form.is_valid():
+            lesson = form.save(commit=False)
+            lesson.chapter = chapter
+            lesson.save()
+            return redirect('lesson_detail', lesson_id=lesson.id )
+    else:
+        form = NewLessonForm()
+    
+    return render(request, 'create_lesson.html', {'form': form})
+
+
 
 def delete_course(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     course.delete()
     return redirect('course_list')
 
+def delete_chapter(request, chapter_id):
+    chapter = get_object_or_404(Chapter, pk=chapter_id)
+    chapter.delete()
+    return redirect('course_list')
 
+def delete_lesson(request, lesson_id):
+    lesson = get_object_or_404(Lesson, pk=lesson_id)
+    lesson.delete()
+    return redirect('course_list')
 
 
 

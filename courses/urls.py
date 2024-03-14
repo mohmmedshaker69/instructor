@@ -11,10 +11,13 @@ urlpatterns = [
     path('create_chapter/<int:course_id>/', views.create_chapter, name='create_chapter'),
     path('create_lesson/<int:chapter_id>/', views.create_lesson, name='create_lesson'),
     path('instructor/<int:instructor_id>/', views.create_instructor, name='create_instructor'),
-    path('delete/<int:course_id>/', views.delete_course, name='delete_course'),
+    path('delete_course/<int:course_id>/', views.delete_course, name='delete_course'),
     path('edit/<int:course_id>/', views.edit_course, name='edit_course'),
-    path('lesson/<int:lesson_id>/video/', views.lesson_video, name='lesson_video'),
+    # path('lesson/<int:lesson_id>/video/', views.lesson_video, name='lesson_video'),
     path('add_chapter/<int:course_id>/', views.add_chapters, name='add_chapters'),
+    path('add_lessons/<int:chapter_id>/', views.add_lessons, name='add_lessons'),
+    path('delete_chapter/<int:chapter_id>/', views.delete_chapter, name='delete_chapter'),
+
 
 
 
